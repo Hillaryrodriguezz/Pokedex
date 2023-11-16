@@ -1,0 +1,154 @@
+{{! types }}
+{{#if activeEditTypes}}
+  <form action="/admin/edit/{{active}}" method="post">
+    <div class="container">
+      <div class="card">
+
+        <div class="card-header">
+          <div>
+            <div class="card-title">
+              <h1>{{title}}</h1>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-body">
+
+          <div class="col-12">
+            <div class="form-group">
+              <label for="name">{{name}}</label>
+              <input
+                type="text"
+                class="form-control"
+                id="name"
+                name="typeName"
+                value="{{tm.typeName}}"
+                required
+              />
+            </div>
+          </div>
+
+          <input type="hidden" name="id" value="{{tm.id}}" />`
+        </div>
+        <div class="card-header">
+          <button type="submit" class="btn btn-success">Edit</button>
+          <a href="/admin/types" class="btn btn-warning">Cancel</a>
+        </div>
+      </div>
+    </div>
+  </form>
+{{/if}}
+
+{{! regions }}
+{{#if activeEditRegions}}
+  <form action="/admin/edit/{{active}}" method="post">
+    <div class="container">
+      <div class="card">
+
+        <div class="card-header">
+          <div>
+            <div class="card-title">
+              <h1>{{title}}</h1>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-body">
+
+          <div class="col-12">
+            <div class="form-group">
+              <label for="name">{{name}}</label>
+              <input
+                type="text"
+                class="form-control"
+                id="name"
+                name="regionName"
+                value="{{rm.regionName}}"
+                required
+              />
+            </div>
+          </div>
+
+          <input type="hidden" name="id" value="{{rm.id}}" />`
+        </div>
+        <div class="card-header">
+          <button type="submit" class="btn btn-success">Edit</button>
+          <a href="/admin/regions" class="btn btn-warning">Cancel</a>
+        </div>
+      </div>
+    </div>
+  </form>
+{{/if}}
+
+{{! pokemons }}
+{{#if activeEditPokemons}}
+  <form action="/admin/edit/{{active}}" method="post">
+    <div class="container">
+      <div class="card">
+
+        <div class="card-header">
+          <div>
+            <div class="card-title">
+              <h1>{{title}}</h1>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-body">
+
+          <div class="col-12">
+            <img src="{{pm.image}}" alt="{{pm.pokemonName}}" class="img-fluid rounded mx-auto d-block"/>
+          </div>
+
+          <div class="col-12">
+            <div class="input-group mt-1 mb-3">
+              <label class="input-group-text" for="name">@</label>
+              <input type="text" class="form-control" id="name" name="name" placeholder="Name" value="{{pm.pokemonName}}" required />
+            </div>
+
+            <div class="input-group mt-1 mb-3">
+              <label class="input-group-text" for="image">Img</label>
+              <input type="text" class="form-control" id="image" name="image" placeholder="Image" value="{{pm.image}}" required />
+            </div>
+
+            <div class="input-group mb-1 mt-3">
+              <label class="input-group-text" for="pokemonTypes">Types</label>
+              <select class="form-select" id="pokemonTypes" name="types" required >
+                {{#each listTp as |tp key|}}
+                  {{#if (equal ../pm.typesId rg.id)}}
+                  <option selected value="{{tp.id}}">{{tp.typeName}}</option>
+                  {{else}}
+                  <option value="{{tp.id}}">{{tp.typeName}}</option>
+                  {{/if}}
+                {{/each}}
+              </select>
+            </div>
+
+            <div class="input-group mb-1 mt-3">
+              <label class="input-group-text" for="pokemonTypes">Regions</label>
+              <select class="form-select" id="pokemonTypes" name="regions" required >
+                {{#each listRg as |rg key|}}
+                  {{#if (equal ../pm.regionId rg.id)}}
+                  <option selected value="{{rg.id}}">{{rg.regionName}}</option>
+                  {{else}}
+                  <option value="{{rg.id}}">{{rg.regionName}}</option>
+                  {{/if}}
+                {{/each}}
+              </select>
+            </div>
+
+          </div>
+
+          <input type="hidden" name="id" value="{{pm.id}}" />
+
+        </div>
+
+        <div class="card-footer">
+          <button type="submit" class="btn btn-success">Edit</button>
+          <a href="/admin/pokemons" class="btn btn-warning">Cancel</a>
+        </div>
+
+      </div>
+    </div>
+  </form>
+{{/if}}

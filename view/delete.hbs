@@ -1,0 +1,130 @@
+{{! types }}
+{{#if activeDeleteTypes}}
+  <form action="/admin/delete/{{active}}" method="post">
+    <div class="container">
+      <div class="card">
+
+        <div class="card-header">
+          <div>
+            <div class="card-title">
+              <h1>{{title}}</h1>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-body row text-center">
+          <div class="col-12">
+            <h1>Do you want to delete this pokemon Type?</h1>
+          </div>
+          <div class="col-12">
+            <ul>
+              <li>id: {{tm.id}}</li>
+              <li>Type: {{tm.typeName}}</li>
+            </ul>
+          </div>
+
+          <input type="hidden" name="id" value="{{tm.id}}" />
+
+        </div>
+
+        <div class="card-header">
+          <button type="submit" class="btn btn-success">Delete</button>
+          <a href="/admin/types" class="btn btn-warning">Cancel</a>
+        </div>
+      </div>
+    </div>
+  </form>
+{{/if}}
+
+{{! regions }}
+{{#if activeDeleteRegions}}
+  <form action="/admin/delete/{{active}}" method="post">
+    <div class="container">
+      <div class="card">
+
+        <div class="card-header">
+          <div>
+            <div class="card-title">
+              <h1>{{title}}</h1>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-body row text-center">
+          <div class="col-12">
+            <h1>Do you want to delete this pokemon Region?</h1>
+          </div>
+          <div class="col-12">
+            <ul>
+              <li>id: {{rm.id}}</li>
+              <li>Region: {{rm.regionName}}</li>
+            </ul>
+          </div>
+
+          <input type="hidden" name="id" value="{{rm.id}}" />
+
+        </div>
+
+        <div class="card-header">
+          <button type="submit" class="btn btn-success">Delete</button>
+          <a href="/admin/regions" class="btn btn-warning">Cancel</a>
+        </div>
+      </div>
+    </div>
+  </form>
+{{/if}}
+
+{{! pokemons }}
+{{#if activeDeletePokemons}}
+  <form action="/admin/delete/{{active}}" method="post">
+    <div class="container">
+      <div class="card">
+
+        <div class="card-header">
+          <div>
+            <div class="card-title">
+              <h1>{{title}}</h1>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-body row">
+          <div class="col-12 text-center ms-2">
+            <h2>Do you want to delete this pokemon?</h2>
+          </div>
+          <div class="col-12">
+            <div class="card">
+              <div class="card-body row">
+                <div class="col-12 col-md-6">
+                  <div>
+                    <img
+                      src="{{pm.image}}"
+                      alt="{{pm.pokemonName}}"
+                      class="img-fluid rounded mx-auto d-block"
+                    />
+                  </div>
+                </div>
+                <div class="col-12 col-md-6">
+                  <ul>
+                    <li>id: {{pm.id}}</li>
+                    <li>Name: {{pm.pokemonName}}</li>
+                    <li>Type: {{pm.typesId}}</li>
+                    <li>Region: {{pm.regionId}}</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <input type="hidden" name="id" value="{{pm.id}}" />
+
+        </div>
+
+        <div class="card-header">
+          <button type="submit" class="btn btn-success">Delete</button>
+          <a href="/admin/pokemons" class="btn btn-warning">Cancel</a>
+        </div>
+      </div>
+    </div>
+  </form>
+{{/if}}

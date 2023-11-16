@@ -1,0 +1,19 @@
+/*for footer*/
+body{
+    min-height: 100vh;
+    display: flex; 
+    flex-direction: column;   
+}
+footer{
+    margin-top: auto;
+}
+
+/*img*/
+img{
+    width: 25%;
+}
+@media screen and (max-width: 991px) {
+    img{
+       width: 100%;
+    }
+}

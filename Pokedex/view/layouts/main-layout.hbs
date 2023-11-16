@@ -1,0 +1,54 @@
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../../assets/css/styles.css" />
+    <link rel="stylesheet" href="../../../assets/css/lib/bootstrap.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>{{{title}}}</title>
+  </head>
+  <body>
+
+    <header class="">
+      <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand {{#if activeHome}} active {{/if}} fs-4" href="/"><img src="/assets/img/avatar.png"/> Pokedex</a>
+          <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation" >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="navbar-collapse collapse" id="navbarColor01" style="">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              <li class="nav-item">
+                <a class="nav-link {{#if activeHome}} active {{/if}}" aria-current="page" href="/">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link {{#if activePokemons}} active {{/if}}" href="/admin/pokemons">Pokemones</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link {{#if activeRegions}} active {{/if}}" href="/admin/regions">Regions</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link {{#if activeTypes}} active {{/if}}" href="/admin/types">Type of pokemons</a>
+              </li>
+            </ul>
+            {{#if activeHome}}
+              <button class="btn btn-success" type="button" data-bs-toggle="modal" data-bs-target="#modalSearch">Search <i class="fa fa-search"></i></button>
+            {{/if}}
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main class="mt-5"> 
+      {{{body}}}
+    </main>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
+    <script src="../../../assets/js/index.js"></script>
+    <script src="../../../assets/js/lib/bootstrap.min.js"></script>
+  </body>
+</html>

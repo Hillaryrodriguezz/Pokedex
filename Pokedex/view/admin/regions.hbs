@@ -1,0 +1,68 @@
+
+<div class="container">
+        <div class="d-flex justify-content-around"> 
+            <h1>{{title}}</h1>
+                        <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#createModal">
+            New Region
+            </button>
+        </div>
+
+    <div class="card mt-5 mb-5">
+        <div class="card-body table-responsive">
+            <table id="example" class="table table-hover table-striped" style="width:100%">
+                <thead>
+                    <tr style="background: #35705f;
+    color: white;
+    height: 79px;
+    font-size: 19px;
+    text-transform: capitalize;">
+                        <th>id</th>
+                        <th>Name</th>
+                        <th>Edit / Delete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each regionData as |rm|}}
+                    <tr>
+                        <td>{{rm.id}}</td>
+                        <td>{{rm.regionName}}</td>
+                        <td>
+                            <a href="/admin/edit/regions/{{rm.id}}" class="btn btn-warning editClass">Edit</a>
+                            <a href="/admin/delete/regions/{{rm.id}}" class="btn btn-danger">Delete</a>
+                    </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+<!-- create Modal -->
+<div class="modal fade" id="createModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+
+    <div class="modal-dialog">
+
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Create a new Type</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <form action="/admin/regions" method="post">
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" class="form-control" id="name" name="regionName" placeholder="Region name" required>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                    <button type="submit"  class="btn btn-success">CREATE</button>
+                </div>
+            </form>
+        </div>
+
+    </div>
+</div>
